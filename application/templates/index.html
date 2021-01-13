@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Index | PySAT{% endblock %}
+
+{% block content %}
+
+
+<div>
+  <div class="container">
+    <p class="description">IP: {{ip}}&nbsp;&nbsp;{% if proxy and proxy.country is not none %}from {{proxy.country}}{% endif %}</p>
+    <div class="div-title">
+      <h1 class="title"><i class="fas fa-dragon" aria-hidden="true"></i><b class="letter-color">Py</b>SAT</h1>
+      <p class="description">User Friendly IT <b class="letter-color">S</b>ervice <b class="letter-color">A</b>nalysis <b class="letter-color">T</b>ool</p>
+    </div>
+    <ul>
+      <li><a id="opt-home" href="/reset_ip"><i class="fa fa-sync-alt" aria-hidden="true"></i></a></li>
+      <li><a id="opt-scanner" href="/scanner"><i class="fas fa-search" aria-hidden="true"></i></a></li>
+      <li><a id="opt-forensic" href="/forensics"><i class="fas fa-fingerprint"></i></a></li>
+      <li><a id="opt-crypto" href="/crypto"><i class="fas fa-unlock-alt"></i></a></li>
+      <li><a id="opt-osint" href="/osint"><i class="fas fa-brain" aria-hidden="true"></i></a></li>
+      <li><a id="opt-net" href="/networking"><i class="fas fa-network-wired" aria-hidden="true"></i></a></li>
+      <li><a id="opt-social" href="/social_engine"><i class="fas fa-users" aria-hidden="true"></i></a></li>
+      <li><a id="opt-anon" href="/anon"><i class="fas fa-user-secret" aria-hidden="true"></i></a></li>
+      <li><a id="opt-help" href="/help"><i class="fas fa-question-circle" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+    <h2 id="menu-option"></h2>
+</div>
+
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for("static", filename='css/index.css')}}">
+
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript" src="{{url_for("static", filename='js/index.js')}}"></script>
+
+{% endblock %}

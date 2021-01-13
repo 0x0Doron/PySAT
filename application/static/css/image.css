@@ -1,0 +1,21 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border-style: solid;
+  border-width: medium;
+  border-color: #00daf0;
+}
+
+.darky{
+    background: #262626;
+    color: #adadad;
+    border-color: #adadad;
+}
+
+.border-neon{
+  border-style: solid;
+  border-width: medium;
+  border-color: #00daf0;
+}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}PySAT | Anon Mode{% endblock %}
+{% block content %}
+
+
+<div class="container-fluid pt-3">
+
+  <a href="/" class="navigation-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</a>
+
+  <div class="row pt-2">
+
+    <!-- ***************************** LEFT COL ********************************************** -->
+
+    <div class="col-sm-4 pt-5">
+      <h1 class="pt-5"></h1>
+
+      <form class="form-inline" action="{{url_for('set_proxy', ip=none, port=none, country=none, anonymous=none)}}" method="post">
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" class="form-control" name="proxyAddr" placeholder="IP:PORT">
+        </div>
+        <button type="submit" class="button glow-button">Try Connection</button>
+        </form>
+    </div>
+
+    <!-- ***************************** CENTER COL ********************************************** -->
+
+    <div class="col-sm-5 pb-5">
+      <h1 class="text-center"><b class="letter-color">ANONYMOUS</b> BROWSING</h1>
+      <p class="description text-center">Select a proxy to hide your real IP address</p>
+      <p class="description text-center">Available proxies: {{nproxies}}</p>
+
+      <div class="list-group pt-3 ">
+        {% for proxy in proxies %}
+          {% if proxy.anonymous and proxy.anonymous is not none %}
+            <a href="/anon/set_proxy/{{proxy.ip}}/{{proxy.port}}/{{proxy.country}}/{{proxy.anonymous}}" class="list-group-item list-group-item-action list-group-item-success">
+              <i class="fa fa-check-circle" aria-hidden="true">&nbsp;&nbsp;</i>
+              {{proxy.ip}}<b>:</b>{{proxy.port}}&nbsp;&nbsp;{% if proxy.country is not none %} <b>{{proxy.country}}</b> {% endif %}
+            </a>
+          {% else %}
+            <a href="/anon/set_proxy/{{proxy.ip}}/{{proxy.port}}/{{proxy.country}}/{{proxy.anonymous}}" class="list-group-item list-group-item-action list-group-item-warning">
+              <i class="fa fa-exclamation-triangle" aria-hidden="true">&nbsp;&nbsp;</i>
+                {{proxy.ip}}<b>:</b>{{proxy.port}}&nbsp;&nbsp;{% if proxy.country is not none %} <b>{{proxy.country}}</b> {% endif %}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- ***************************** RIGHT COL ********************************************** -->
+
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

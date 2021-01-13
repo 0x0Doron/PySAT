@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Forensics-Image::{{id}} | PySAT{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid pt-3">
+
+  <a href="/forensics/images" class="navigation-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</a>
+
+  <div class="row">
+    <div class="container">
+      <h1 class="text-center"><b class="letter-color">Name:</b><b> {{image.name}}</b></h1>
+      <p class="description text-center"><b class="letter-color">Path:</b> {{image.path}}</p>
+      <p class="description text-center"><b class="letter-color">Nº exif tags:</b> {{image.exif|length}}</p>
+    </div>
+
+
+    <!-- ***************************** CENTER COL ********************************************** -->
+
+    <div class="col-sm-6 pb-5 rounded">
+
+      <div class="pt-5 img">
+        <img src="{{url_for('static', filename='img/forensics/' + image.name )}}" alt="image.name">
+
+      </div>
+
+
+    </div>
+
+    <!-- ***************************** RIGHT COL ********************************************** -->
+
+    <div class="col-sm-4 pt-5 pb-5">
+      <ul class="list-group list-group-flush border-neon">
+        {% for exif in image.exif %}
+          <li class="list-group-item darky"><b class="letter-color">{{exif}}:</b> {{image.exif[exif]}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% block styles %}
+<link rel="stylesheet" href="{{url_for("static", filename='css/image.css')}}">
+{% endblock %}
+
+
+{% endblock %}

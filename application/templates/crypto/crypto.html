@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Crypto | PySAT{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid pt-3">
+
+  <a href="/" class="navigation-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</a>
+
+  <div class="row pt-2">
+
+    <!-- ***************************** LEFT COL ********************************************** -->
+
+    <div class="col-sm-4 pt-5">
+    </div>
+
+    <!-- ***************************** CENTER COL ********************************************** -->
+
+    <div class="col-sm-5 pb-5 rounded">
+      <h1 class="text-center"><b class="letter-color">Playing</b><b> with cryptography</b></h1>
+      <p class="description text-center">Multiple cryptographic utilities</p>
+
+      <div class="pt-5">
+        <p class="description text-center" id="identify-result"></p>
+        <div class="input-group flex-nowrap pt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
+          </div>
+          <input type="text" class="form-control" id="hashToIdentify" placeholder="Hash To Identify">
+          <button type="button" class="button glow-button" id="sendHashToIdentify">Identify</button>
+      </div>
+      </div>
+
+      <div class="pt-5">
+        <p class="description text-center" id="decodedText"></p>
+        <div class="input-group flex-nowrap pt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+          </div>
+          <input type="text" class="form-control" id="codeToDecode" placeholder="Code To Decode" aria-label="crack" aria-describedby="addon-wrapping">
+          <select name="decodeList" id="decodeOptions">
+            {% if decoders %}
+              {% for decoder in decoders %}
+                <option value="{{decoder}}">{{decoder}}</option>
+              {% endfor %}
+            {% endif %}
+          </select>
+          <button type="button" class="button glow-button" id="sendToDecode">Decode</button>
+      </div>
+      </div>
+
+      <div class="pt-5">
+        <p class="description text-center" id="encodedText"></p>
+        <div class="input-group flex-nowrap pt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          </div>
+          <input type="text" class="form-control" id="textToEncode" placeholder="Text To Encode" aria-label="crack" aria-describedby="addon-wrapping">
+          <select name="encodeList" id="encodeOptions">
+            {% if encodings %}
+              {% for encoding in encodings %}
+                <option value="{{encoding}}">{{encoding}}</option>
+              {% endfor %}
+            {% endif %}
+
+          </select>
+          <button type="button" class="button glow-button" id="sendToEncode">Encode</button>
+      </div>
+      </div>
+
+      <div class="pt-5">
+        <p class="hash text-center" id="hash-result"></p>
+        <div class="input-group flex-nowrap pt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa fa-lock" aria-hidden="true"></i></span>
+          </div>
+          <input type="text" class="form-control" id="textToHash" placeholder="Text To Hash" aria-label="hashGen" aria-describedby="addon-wrapping">
+          <select name="hashTypes" id="hashOptions">
+            {% if hash_types %}
+              {% for type in hash_types %}
+                <option value="{{type}}">{{type}}</option>
+              {% endfor %}
+            {% endif %}
+          </select>
+          <button type="button" class="button glow-button" id="sendToHash">Hash</button>
+
+      </div>
+      </div>
+
+    </div>
+
+    <!-- ***************************** RIGHT COL ********************************************** -->
+
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+</div>
+
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for("static", filename='css/crypto.css')}}">
+
+{% endblock %}
+
+{% block js %}
+  <script src="../static/js/crypto.js" charset="utf-8"></script>
+{% endblock %}
+
+{% endblock %}

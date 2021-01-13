@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Scanner | PySAT{% endblock %}
+
+{% block content %}
+
+
+<div class="pt-4 pl-4">
+  <a href="/" class="navigation-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</a>
+</div>
+  <div class="container">
+    <div class="div-title">
+      <h2 class="title"><b class="letter-color">S</b>canner</h2>
+      <p class="description text-center">Different utilities to scan and analyze services</p>
+    </div>
+    <ul>
+      <li><a id="opt-web" href="/scanner/web"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+      <li><a id="opt-ports" href="/scanner/server"><i class="fa fa-server" aria-hidden="true"></i></a></li>
+      <li><a id="opt-radio" href="/scanner/radio"><i class="external-module fas fa-broadcast-tower" aria-hidden="true"></i></a></li>
+      <li><a id="opt-wifi" href="/scanner/wifi"><i class="external-module fas fa-wifi" aria-hidden="true"></i></a></li>
+      <li><a id="opt-video" href="/scanner/video_vigilance"><i class="external-module fas fa-video" aria-hidden="true"></i></a></li>
+
+    </ul>
+    <h2 class="letter-color"><b id="menu-opt"></b></h2>
+  </div>
+
+
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for("static", filename='css/index.css')}}">
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{url_for("static", filename='js/scanner.js')}}"></script>
+{% endblock %}

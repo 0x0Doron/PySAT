@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Forensics | PySAT{% endblock %}
+
+{% block content %}
+
+
+<div class="pt-4 pl-4">
+  <a href="/" class="navigation-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</a>
+</div>
+  <div class="container">
+    <div class="div-title">
+      <h2 class="title"><b class="letter-color">F</b>orensics</h2>
+      <p id="menu-opt" class="description text-center">Different utilities for Meta-Data extraction & data analysis</p>
+    </div>
+    <ul>
+      <li><a id="opt-images" href="/forensics/images"><i class="fa fa-images" aria-hidden="true"></i></a></li>
+      <li><a id="opt-pdfs" href="/forensics/pdfs"><i class="fas fa-file-pdf" aria-hidden="true"></i></a></li>
+      <li><a id="opt-virus" href="/forensics/virus"><i class="fas fa-spider" aria-hidden="true"></i></a></li>
+
+    </ul>
+  </div>
+
+
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for("static", filename='css/index.css')}}">
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{url_for("static", filename='js/forensics.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Scanner - Web | PySAT{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid pt-3">
+
+  <a href="/scanner" class="navigation-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbsp;Back</a>
+
+  <div class="row pt-2">
+
+    <!-- ***************************** LEFT COL ********************************************** -->
+
+    <div class="col-sm-2 pt-5">
+    </div>
+
+    <!-- ***************************** CENTER COL ********************************************** -->
+
+    <div class="col-sm-8 pb-5 rounded">
+      <h1 class="text-center"><b class="letter-color">Web</b><b> Scanner</b>{% if anon %} &nbsp;&nbsp;<i class="fas fa-user-secret" aria-hidden="true"></i>{% endif %}</h1>
+      <p class="description text-center">Different technics for web sites scanning</p>
+
+      <div class="target">
+
+        <div class="row">
+          <div class="col-md-3">
+
+          </div>
+
+          <div class="col-md-7 pt-5">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend rounded">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-eye" aria-hidden="true"></i></span>
+              </div>
+              <input type="text" class="form-control rounded target-box" id="siteTarget" placeholder="web site url" aria-label="Username" aria-describedby="basic-addon1">
+              <button class="btn neon-btn" type="button" id="btnScanTarget" name="button">Scan Web site</button>
+            </div>
+
+            <div class="scan-options text-center pt-4">
+
+              <input type="checkbox" id="cbImageDownloader" name="ImageDownloader">
+              <label class="description cb-opt" for="ImageDownloader">Download Images &nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+              <input class="checked" type="checkbox" id="cbDocumentsDownloader" name="DocumentsDownloader">
+              <label class="description cb-opt" for="DocumentsDownloader">Download Documents &nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+              <input type="checkbox" id="cbEmailGathering" name="EmailGather">
+              <label class="description cb-opt" for="EmailGather">Serach for emails &nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <br>
+              <input type="checkbox" id="cbBruteContent" name="BruteContent">
+              <label class="description cb-opt" for="BruteContent">Brute force content &nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+              <input type="checkbox" id="cbInsecureCookies" name="InsecureCookies">
+              <label class="description cb-opt" for="InsecureCookies">Check Insecure Cookies &nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+
+            </div>
+
+            <br>
+            <p class="description text-center" id="output-tag"><b>Output:</b></p>
+            <div class="text-center" id="scan-loader">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <br>
+          </div>
+
+            <div class="output-terminal" id="terminal">
+              <br>
+            </div>
+
+
+          <div class="col-md-3">
+
+          </div>
+          </div>
+        </div>
+        <div class="text-center pt-4">
+          <button type="button" class= " button glow-button" name="button">Export</button>
+          <button type="button" class= " button glow-button" name="button">Save</button>
+
+        </div>
+    </div>
+
+    <!-- ***************************** RIGHT COL ********************************************** -->
+
+    <div class="col-sm-2">
+
+    </div>
+  </div>
+</div>
+
+{% block styles %}
+
+<link rel="stylesheet" href="{{url_for("static", filename='css/base.css')}}">
+<link rel="stylesheet" href="{{url_for("static", filename='css/scanner.css')}}">
+
+{% endblock %}
+
+{% block js %}
+  <script src="{{url_for('static', filename='js/web_scanner.js')}}" charset="utf-8"></script>
+{% endblock %}
+
+{% endblock %}

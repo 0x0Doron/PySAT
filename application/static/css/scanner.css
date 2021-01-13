@@ -1,0 +1,80 @@
+.neon-btn{
+  margin-left: 20px;
+  color: #adadad;
+  background: #262626;
+  border-style: solid;
+  border-width: medium;
+  border-radius: 12px;
+  border-color: #adadad;
+}
+
+
+.neon-btn:hover {
+  margin-left: 20px;
+  color: #adadad;
+  background: #262626;
+  border-style: solid;
+  border-width: medium;
+  border-radius: 12px;
+  border-color: #00daf0;
+}
+
+.target-box:focus {
+  outline: 2px solid #00daf0;
+  outline-style: solid;
+
+}
+
+.output-terminal{
+  background: #333333;
+  color: #adadad;
+  border-style: solid;
+  border-color: #00daf0;
+  border-width: medium;
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.output-terminal p{
+  margin-left: 15px;
+}
+
+#map{
+  height: 500px;
+  width: 700px;
+  border-style: solid;
+  border-width: medium;
+  border-color: #00daf0;
+}
+
+.img-out{
+  font-weight: bold;
+  color: white;
+}
+
+
+.doc-out{
+  font-weight: bold;
+  color: #565861;
+}
+
+
+.email-out{
+  font-weight: bold;
+  color: #27a723;
+}
+
+
+.content-out{
+  font-weight: bold;
+  color: #bf7e14;
+}
+
+
+.inseccookies-out{
+  font-weight: bold;
+  color: #bf3718;
+}
