@@ -137,7 +137,7 @@ def get_images(limit=None):
         pass
     else:
 
-        images_path = PATH + '/static/img/forensics/'
+        images_path = PATH + '/application/static/img/forensics/'
 
         images = [filename for filename in os.listdir(images_path)]
         images_full_path = [images_path+img_name for img_name in images]    # for exif analysis

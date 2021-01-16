@@ -316,25 +316,7 @@ def page_not_found(error):
     return render_template('page_not_found.html', error=error)
 
 
-# ANSI escape sequences 4 colored prints
-
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-
 
 
 if __name__ == '__main__':
-    with open(PATH+'/header.txt', 'r') as f:
-        lines = f.read()
-        print('\n'+lines)
-    print(f"\n\n    Coded with {bcolors.FAIL}LOVE{bcolors.ENDC} by Aritz.")
-    print("----------------------------------\n\n")
     socketio.run(app)
