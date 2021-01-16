@@ -8,7 +8,6 @@ import time
 import sys
 from threading import Thread
 
-import webview
 
 
 PATH = os.path.abspath(os.getcwd())
@@ -36,6 +35,7 @@ def init_pywebengine():
     print("\n\n Loading the webengine...\n\n")
     time.sleep(4)
     try:
+        import webview
         webview.create_window('PySAT | IT Service Analysis Tool', 'http://localhost:5000/')
         webview.start()
     except:
