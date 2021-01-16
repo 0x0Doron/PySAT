@@ -15,11 +15,13 @@ from modules.forensics.image_utilities import CustomImage
 from modules.scanner import web
 from modules.scanner import server_scanner
 
-import controller
+import helper
 
 import re
 import os
 
+
+PATH = os.path.abspath(os.getcwd())
 
 app = Flask(__name__)
 app.config['SECRET KEY'] = 'secret!'
@@ -30,11 +32,11 @@ socketio = SocketIO(app)
 
 @app.route('/')
 def index():
-    if controller.any_proxy():
-        proxy = controller.get_current_proxy()
+    if helper.any_proxy():
+        proxy = helper.get_current_proxy()
         ip = proxy.ip
     else:
-        ip = controller.get_real_ip()
+        ip = helper.get_real_ip()
         proxy=None
 
     return render_template('index.html', ip=ip, proxy=proxy)
@@ -46,7 +48,7 @@ def index():
 
 @app.route('/reset_ip')
 def reset_ip():
-    controller.remove_proxy()
+    helper.remove_proxy()
     return redirect(url_for('index'))
 
 
@@ -65,7 +67,7 @@ def set_proxy(ip=None, port=None, country=None, anonymous=None):
     if request.method == 'POST':
         proxy_addr = request.form['proxyAddr']
 
-        if controller.is_ip_port(proxy_addr):
+        if helper.is_ip_port(proxy_addr):
 
             ip = proxy_addr.split(':')[0]
             port = proxy_addr.split(':')[1]
@@ -75,10 +77,10 @@ def set_proxy(ip=None, port=None, country=None, anonymous=None):
     else:
         proxy = CustomProxy(ip, port, country, anonymous)
 
-    proxy_works = controller.test_proxy_connection(proxy)
+    proxy_works = helper.test_proxy_connection(proxy)
 
     if proxy_works:
-        controller.config_proxy(proxy)    # init proxy.txt
+        helper.config_proxy(proxy)    # init proxy.txt
         return redirect(url_for('index'))
     return redirect(url_for('anon'))
 
@@ -174,7 +176,7 @@ def forensics():
 @app.route('/forensics/images')
 @app.route('/forensics/images/<id>')
 def forensics_images(id=None):
-    images_tuple = controller.get_images()  # list of images (image_name, full_path)
+    images_tuple = helper.get_images()  # list of images (image_name, full_path)
     images_name = images_tuple[0]
     images_path = images_tuple[1]
 
@@ -214,7 +216,7 @@ def scanner():
 def port_scanner():
 
     anon = False
-    if controller.any_proxy():
+    if helper.any_proxy():
         anon = True
 
     return render_template('scanner/servers.html', anon=anon)
@@ -222,7 +224,7 @@ def port_scanner():
 
 @socketio.on('scan server')
 def scan_server(host):
-    scanner_data = controller.parse_server_scanner_data(host)
+    scanner_data = helper.parse_server_scanner_data(host)
     if scanner_data is not None:
 
         scan_info = server_scanner.load_port_scanner(scanner_data[1], scanner_data[2], scanner_data[3], scanner_data[4])
@@ -282,9 +284,9 @@ def scan_server(host):
 @app.route('/scanner/web')
 def web_scanner():
     anon = False
-    if controller.any_proxy():
+    if helper.any_proxy():
         anon = True
-    username = controller.get_pc_user()
+    username = helper.get_pc_user()
 
     return render_template('scanner/web.html', username=username, anon=anon)
 
@@ -293,7 +295,7 @@ def web_scanner():
 def scan_web(param):
     params = param.split(':')   # carefull with the http/s <:>
 
-    controller.load_web_scanner(params)
+    helper.load_web_scanner(params)
 
 
 
@@ -314,6 +316,25 @@ def page_not_found(error):
     return render_template('page_not_found.html', error=error)
 
 
+# ANSI escape sequences 4 colored prints
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 
 if __name__ == '__main__':
+    with open(PATH+'/header.txt', 'r') as f:
+        lines = f.read()
+        print('\n'+lines)
+    print(f"\n\n    Coded with {bcolors.FAIL}LOVE{bcolors.ENDC} by Aritz.")
+    print("----------------------------------\n\n")
     socketio.run(app)

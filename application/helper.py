@@ -6,6 +6,7 @@
 #   and avoid the overload in app.py file
 #
 
+import sys
 import os
 import urllib.request
 from urllib.request import build_opener, HTTPCookieProcessor
@@ -31,6 +32,21 @@ wan_ip_services = ('https://ident.me',) # add more to increase the availability
 
 def get_pc_user():
     return getpass.getuser()
+
+
+def is_linux():
+    if 'linux' in sys.platform.lower():
+        return True
+    return False
+
+
+def able_4_networking():
+    ''' 4 the moment only works 4 Linux'''
+    if is_linux() and os.getuid() == 0:
+        return True
+    return False
+
+
 
 ####### ANONYMOUS MODE #########
 
