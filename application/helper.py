@@ -23,7 +23,7 @@ import threading
 
 
 PATH = os.path.abspath(os.getcwd())
-relative_path = '/modules/anon/config/proxy.txt'
+relative_path = '/application/modules/anon/config/proxy.txt'
 proxy_conf_path = PATH + relative_path
 wan_ip_services = ('https://ident.me',) # add more to increase the availability
 
@@ -52,6 +52,7 @@ def able_4_networking():
 
 
 def config_proxy(proxy):
+    print(proxy)
     '''
         Creates the new config
         file with the proxy

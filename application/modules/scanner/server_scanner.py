@@ -97,7 +97,6 @@ class CustomPSThread(threading.Thread):
     def run(self):
         scantcp(self.name, self.host, self.start_port, self.finish_port, self.conectivity)
 
-# --- section 3
 
 def scantcp(name, host, start_port, finish_port, conectivity):
 

@@ -14,7 +14,7 @@ import re
 
 
 PATH = PATH = os.path.abspath(os.getcwd())
-static_img_path = PATH.split('/modules/scanner')[0] + '/static/img/forensics'
+static_img_path = PATH.split('/modules/scanner')[0] + '/application/static/img/forensics'
 
 
 def image_downloader(site, proxy=None):
@@ -65,6 +65,7 @@ def email_gathering(site, proxy=None):
 
         # get url's content
         print('Scraping {}'.format(url))
+        response = ''
         try:
             if proxy is not None:
                 ip = proxy[0]
@@ -75,8 +76,8 @@ def email_gathering(site, proxy=None):
             else:
                 response = requests.get(url)
 
-        except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
-            # ignore errors
+        except:
+            response = requests.get(url)
             pass
 
         # search for emails inside the response
@@ -126,7 +127,7 @@ def check_4_insecure_cookies(site, proxy=None):
         print('Value:', cookie.value)
         data += 'Name: ' + str(cookie.name) + '\nValue: ' + str(cookie.value)
         if not cookie.secure:
-            cookie.secure = '\x1b[31mFalse\x1b[39;49m'
+            cookie.secure = 'False'
             print('Secure:', cookie.secure)
             data += '\nSecure: ' + str(cookie.secure)
         if 'httponly' in cookie._rest.keys():

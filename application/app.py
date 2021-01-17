@@ -25,7 +25,7 @@ PATH = os.path.abspath(os.getcwd())
 
 app = Flask(__name__)
 app.config['SECRET KEY'] = 'secret!'
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
 socketio = SocketIO(app)
 
 
