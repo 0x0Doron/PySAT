@@ -17,8 +17,8 @@ AT YOUR OWN RISK. But know, that I enjoyed and learned a lot of new concepts whi
 
 ----------------------------------------------------------------------------
 
-![Menú principal PySAT](/images/menu_01.png)
-Format: ![PySAT menu](url)
+![PySAT menu](/images/menu_01.png)
+![PySAT menu](url)
 
 -----------------------------------------------------------------------------
 
@@ -30,4 +30,19 @@ Install all the dependencies:
 
 ```python
   python -m pip install -r requirements.txt
+```
+
+If you want to display the app with a desktop window install also pywebview:
+
+
+```python
+  pip install pywebview[qt]
+```
+
+If not, you can access the app with any web browser.
+
+Launch the app:
+
+```python
+  python pysat.py
 ```
