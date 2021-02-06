@@ -17,5 +17,5 @@ AT YOUR OWN RISK. But know, that I enjoyed and learned a lot of new concepts whi
 
 ----------------------------------------------------------------------------
 
-![Menú principal PySAT](/images/menu01.png)
-Format: ![Alt Text](url)
+![Menú principal PySAT](/images/menu_01.png)
+Format: ![PySAT menu](url)
