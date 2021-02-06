@@ -16,3 +16,5 @@ So, if you are a brave adventurer and want to see the bowels of my project ( cod
 AT YOUR OWN RISK. But know, that I enjoyed and learned a lot of new concepts while I was developing.
 
 ----------------------------------------------------------------------------
+
+![Menú principal PySAT](https://github.com/RoPi00/PySAT/images/menu01.png)
