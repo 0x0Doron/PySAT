@@ -24,12 +24,10 @@ Format: ![PySAT menu](url)
 
 ## Installation
 
-Just download or clone this repository
+Just download or clone this repository. I recommend you to create a python3 virtualenv.
 
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
+Install all the dependencies:
+
+```python
+  python -m pip install -r requirements.txt
 ```
