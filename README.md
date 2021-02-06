@@ -19,3 +19,17 @@ AT YOUR OWN RISK. But know, that I enjoyed and learned a lot of new concepts whi
 
 ![Menú principal PySAT](/images/menu_01.png)
 Format: ![PySAT menu](url)
+
+-----------------------------------------------------------------------------
+
+## Installation
+
+Just download or clone this repository
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
