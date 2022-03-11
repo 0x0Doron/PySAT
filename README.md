@@ -12,8 +12,8 @@ This could be very fun and interesting, but I have recently started working and 
 time nor desire to continue this project.
 
 When I started this, I didn't know how to structure a project, as I said, I was still studying.
-So, if you are a brave adventurer and want to see the bowels of my project ( code :) ), DO IT 
-AT YOUR OWN RISK. But know, that I enjoyed and learned a lot of new concepts while I was developing.
+So, if you are a brave adventurer and want to see the bowels of my project... 
+But know, that I enjoyed and learned a lot of new concepts while I was developing.
 
 
 
