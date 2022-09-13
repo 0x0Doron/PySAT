@@ -6,7 +6,7 @@
 ----------------------------------------------------------------------------
 
 PySAT is a personal project that I started building for a school project.
-The idea was to creare a tool to scan different devices connected to the internet.
+The idea was to create a tool to scan different devices connected to the internet and learn new concepts.
 
 ### Features
 - [x] Port scanner
