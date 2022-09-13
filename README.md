@@ -5,7 +5,7 @@
 
 ----------------------------------------------------------------------------
 
-PySAT is a personal project that I started building for a high school project.
+PySAT is a personal project that I started building for a school project.
 The idea was to creare a tool to scan different devices connected to the internet.
 
 ### Features
